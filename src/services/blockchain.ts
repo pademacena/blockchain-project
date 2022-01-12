@@ -47,4 +47,4 @@ class Blockchain {
     }
 }
 
-export { Blockchain }
+export default new Blockchain

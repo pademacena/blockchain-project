@@ -1,4 +1,4 @@
-import { Blockchain } from './blockchain';
+import Blockchain from './blockchain';
 
 interface IAddNewBlock {
   sender: any;
@@ -8,11 +8,9 @@ interface IAddNewBlock {
 
 class AddNewBlockService {
   async execute({ sender, received, amount }: IAddNewBlock ) {
-    const blockchain = new Blockchain();
-
-    const insertBlock = blockchain.addBlock({sender, received, amount});
-    console.log(blockchain);
-    console.log(blockchain.blocks[1]);
+    
+    const insertBlock = Blockchain.addBlock({sender, received, amount});
+    console.log(Blockchain);
 
     return insertBlock;
   } 
