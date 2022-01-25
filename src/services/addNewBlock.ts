@@ -8,11 +8,12 @@ interface IAddNewBlock {
 
 class AddNewBlockService {
   async execute({ sender, received, amount }: IAddNewBlock ) {
-    
-    const insertBlock = Blockchain.addBlock({sender, received, amount});
-    console.log(Blockchain);
 
-    return insertBlock;
+    
+    await Blockchain.addBlock({sender, received, amount});
+    const newblock = Blockchain.blocks[Blockchain.blocks.length -1];
+    // console.log(Blockchain.blocks.filter(blockchain => blockchain.data.recived == received));
+    return newblock;
   } 
 }
 
